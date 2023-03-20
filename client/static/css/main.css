@@ -1,0 +1,176 @@
+/* Reset the whole website css */
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  color: black;
+  box-sizing: border-box;
+  font-size: 62.5%; /* 1 rem = 10 px */
+}
+
+body {
+  width: 100vw;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  align-content: space-between;
+  justify-content: flex-start;
+}
+
+header {
+  width : 100vw;
+  height: 35rem;
+
+  background: url('https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2969&q=80');
+  background-size: cover;
+  background-position: 0 -25rem;
+  background-repeat: no-repeat;
+}
+
+nav {
+  width: 100%;
+  border: 0px solid red;
+
+  /* top | left | bottom | right */
+  margin: 2.5rem 0 2.5rem 0;
+}
+
+nav ul li {
+  border: 0 solid blue;
+  list-style-type: none;
+
+  /* grow | shrink | basis */
+  flex: 0.1 1 auto;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: left;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.15rem;
+  color: #282828;
+}
+
+nav ul {
+  display: flex;
+  flex-flow: row;
+  align-items: flex-start;
+  align-content: flex-start;
+  justify-content: flex-start;
+
+  padding-left: 5rem;
+}
+
+nav ul li:first-child {
+  flex: 1 0 auto;
+  background: transparent;
+}
+
+nav ul li:nth-child(4) {
+  background: transparent;
+}
+
+nav ul li a {
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  color: #F0512B;
+}
+
+main {
+  width: 50vw;
+  height: auto;
+  border: 0 solid red;
+  margin-top: 10rem;
+}
+
+button {
+  width: auto;
+  height: auto;
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+  background: #F0512B;
+  border: none;
+  border-radius: 10rem;
+
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: justify;
+  text-transform: capitalize;
+  text-decoration: none;
+  letter-spacing: auto;
+  color: #fff;
+
+  cursor: pointer;
+}
+
+footer {
+  width: 100vw;
+  height: auto;
+  background: #e8e8e8;
+
+  /* Keep the footer where it should be (at the bottom of all elements */
+  position: absolute;
+  bottom: 0;
+  padding: 2rem;
+}
+
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 5rem;
+  font-weight: bold;
+  text-align: left;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.5rem;
+  color: #282828;
+
+  border: 0 solid transparent;
+
+  /* top | left | bottom | right */
+  margin: 5rem 0 0 5rem;
+
+  /* top | left | bottom | right */
+  padding: 0 0 0 0;
+}
+
+h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: left;
+  text-transform: capitalize;
+  text-decoration: none;
+  letter-spacing: 0.5rem;
+  color: #282828;
+
+  border: 0 solid transparent;
+
+  margin-bottom: 2rem;
+}
+
+p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.5rem;
+  font-weight: normal;
+  text-align: justify;
+  text-transform: none;
+  text-decoration: none;
+  letter-spacing: auto;
+  color: #282828;
+
+  border: 0 solid transparent;
+}
+
+.footer-p {
+  font-size: 1rem;
+  font-weight: normal;
+  text-align: center;
+  text-transform: capitalize;
+  text-decoration: none;
+  letter-spacing: auto;
+  color: #282828;
+}
