@@ -144,7 +144,7 @@ footer {
   /* border: 1px solid red; */
 }
 
-.container-groups {
+.container-group {
   display: flex;
   flex-flow: row;
   align-items: center;
@@ -154,7 +154,7 @@ footer {
   overflow: auto;
 }
 
-.container-groups .container-group-name {
+.container-group .container-group-name {
   width: 30%;
 }
 
@@ -280,7 +280,7 @@ button {
 }
 
 .container-btns button {
-  width: 30%;
+  width: 33%;
   height: auto;
 
   display: flex;
@@ -292,7 +292,7 @@ button {
   padding: 1rem 2rem;
 
   border: none;
-  border-radius: 10rem;
+  border-radius: 1rem;
 
   font: var(--heading4);
   text-align: center;
@@ -441,7 +441,7 @@ h5 {
   padding: 0 0 0 0;
 }
 
-.container-groups .container-group-name h4 {
+.container-group .container-group-name h4 {
   text-align: left;
 }
 
