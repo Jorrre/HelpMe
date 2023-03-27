@@ -3,36 +3,86 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/3ce46cd962.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+
     <title>HelpMe</title>
   </head>
   <body>
 
     <header>
       <h1>HelpMe</h1>
+      <button class="btn-logout">log out</button>
     </header>
 
-    <nav>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><!-- empty --></li>
-        <li><a href="#">Link 1</a></li>
-        <li><a href="#">Link 2</a></li>
-        <li><a href="#">Link 3</a></li>
-      </ul>
-    </nav>
-
     <main>
-      <div id="top-content" class="">
-        <h2>Quack quack</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis enim lobortis scelerisque fermentum dui faucibus in ornare quam. Suscipit adipiscing bibendum est ultricies. Ante metus dictum at tempor commodo. Nulla facilisi etiam dignissim diam quis enim lobortis scelerisque. Dui id ornare arcu odio ut sem nulla pharetra. Cursus eget nunc scelerisque viverra. Volutpat consequat mauris nunc congue nisi. Sed adipiscing diam donec adipiscing tristique risus nec feugiat in. Tortor dignissim convallis aenean et tortor at risus. Risus at ultrices mi tempus imperdiet nulla malesuada pellentesque. Ullamcorper morbi tincidunt ornare massa eget egestas purus viverra accumsan.
-        </p>
-        <a href="#"><button type="button" name="button">Quack</button></a>
+      <div class="col-2">
+        <!-- groups -->
+        <div id="container-groups" class="container-groups">
+          <div id="group-id" class="container-group-name">
+            <h4>Group 1</h4>
+          </div>
+
+          <div>
+          <div class="container-numbers">
+            <ul>
+              <li><h5>1</h5></li>
+              <li><h5>2</h5></li>
+              <li><h5>3</h5></li>
+              <li><h5>4</h5></li>
+              <li><h5>5</h5></li>
+            </ul>
+          </div>
+
+          <!-- bar -->
+          <div class="bar-behind">
+            <div class="bar-filler"></div>
+          </div>
+        </div>
+        </div>
+      </div>
+
+
+
+
+      <div class="col-2 seventh-height">
+        <div>
+          <div class="container-profile">
+            <img src="duck.svg" class="profile-pic" alt="Duck">
+          </div>
+          <h2>Group 1</h2>
+        </div>
+
+        <div>
+          <div class="container-numbers">
+            <ul>
+              <li><h4>1</h4></li>
+              <li><h4>2</h4></li>
+              <li><h4>3</h4></li>
+              <li><h4>4</h4></li>
+              <li><h4>5</h4></li>
+            </ul>
+          </div>
+
+          <!-- bar -->
+          <div class="bar-behind">
+            <div class="bar-filler"></div>
+          </div>
+        </div>
+
+        <div class="container-btns">
+          <button class="btn-regress"><i class="fa-solid fa-arrow-left" style="margin-bottom: 1rem; font-size: 3rem; color: var(--color-white);"></i>regress</button>
+          <button class="btn-help"><i class="fa-solid fa-circle-question" style="margin-bottom: 1rem; font-size: 3rem; color: var(--color-white);"></i>Ask for Help</button>
+          <button class="btn-progress"><i class="fa-solid fa-arrow-right" style="margin-bottom: 1rem; font-size: 3rem; color: var(--color-white);"></i>Progress</button>
+        </div>
       </div>
     </main>
 
     <footer>
-      <p class="footer-p">Footer text</p>
+      <p class="footer-p">Developed by TTM4115 Group 1, Spring 2023</p>
     </footer>
 
   </body>
