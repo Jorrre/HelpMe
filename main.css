@@ -32,6 +32,9 @@
   --heading4: normal 700 2.0rem / 2.6rem 'IBM Plex Sans', sans-serif;
   --tag: normal 700 1.4rem / 1.8rem 'IBM Plex Sans', sans-serif;
   --paragraph: normal 400 1.2rem / 1.6rem 'IBM Plex Sans', sans-serif;
+
+  /* JS VARIABLES */
+  --bar-filler-width: 0%;
 }
 
 
@@ -214,7 +217,7 @@ footer {
 }
 
 .col-2 div .bar-behind .bar-filler {
-  width: 51%;
+  width: var(--bar-filler-width);
   height: 100%;
 
   background: var(--color-purple);
@@ -222,6 +225,9 @@ footer {
   border-radius: 20rem;
 
   z-index: 2;
+
+  transition-timing-function: ease-in-out;
+  transition: 0.25s;
 }
 
 .seventh-height {
