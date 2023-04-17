@@ -380,7 +380,7 @@ button {
   background: #56CF90;
 }
 
-.btn-regress:disabled {
+.btn-progress:disabled {
   background: var(--color-beige-light);
 
   color: var(--color-gray-mid);

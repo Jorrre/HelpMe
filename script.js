@@ -92,10 +92,13 @@ function btnRegress(event) {
     if (myBarLength != 0) {
         myBarLength -= barStep;
         r.style.setProperty('--bar-filler-width', `${myBarLength}%`);
-        // console.log(`--bar-filler-width: ${myBarLength}%`);
+        elBtnProgress.disabled = false;
+        elBtnRegress.disabled = false;
     } else {
         elBtnRegress.disabled = true;
     }
+
+    console.log(`--bar-filler-width: ${myBarLength}%`);
 }
 
 
@@ -108,11 +111,13 @@ function btnProgress(event) {
     if (myBarLength != 100) {
         myBarLength += barStep;
         r.style.setProperty('--bar-filler-width', `${myBarLength}%`);
+        elBtnProgress.disabled = false;
         elBtnRegress.disabled = false;
-        // console.log(`--bar-filler-width: ${myBarLength}%`);
-    } else if (myBarLength == 100) {
+    } else {
         elBtnProgress.disabled = true;
-    }
+    } 
+
+    console.log(`--bar-filler-width: ${myBarLength}%`);
 }
 
 
