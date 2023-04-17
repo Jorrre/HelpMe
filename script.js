@@ -9,7 +9,7 @@ const elBtnProgress = document.querySelector('#btn-progress');
 var r = document.querySelector(':root');
 
 // CONSTANTS
-const numberOfGroups = 10;
+const numberOfGroups = 20;
 const numberOfTasks = 5;
 const barStep = (100/numberOfTasks) + 5;
 
@@ -95,4 +95,4 @@ function btnProgress(event) {
 
 
 // RUN
-// loadGroupsAndProgresses();
+loadGroupsAndProgresses();

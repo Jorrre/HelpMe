@@ -161,6 +161,18 @@ footer {
   width: 30%;
 }
 
+.container-groups {
+  width: 100%;
+
+  margin: 0 0 4rem 0;
+
+  border: 0 solid red;
+}
+
+#col-2-container-groups {
+  overflow: auto;
+}
+
 .profile-pic {
   width: 20rem;
   height: 20rem;
@@ -415,7 +427,7 @@ h3 {
 
 h4 {
   font: var(--heading4);
-  text-align: center;
+  text-align: left;
   text-transform: none;
   text-decoration: none;
   letter-spacing: 0.05rem;
