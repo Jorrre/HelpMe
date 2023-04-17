@@ -228,7 +228,7 @@ footer {
   z-index: 1;
 }
 
-.col-2 div .bar-behind .bar-filler {
+.col-2 div .bar-behind .my-bar-filler {
   width: var(--bar-filler-width);
   height: 100%;
 
