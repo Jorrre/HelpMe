@@ -9,7 +9,6 @@ class MQTT_Client:
     def start(self, broker, port):
         self.client = mqtt.Client()
         self.client.on_connect = self.on_connect
-        self.client.on_message = self.on_message
         print("Connecting to {}:{}".format(broker, port))
         self.client.connect(broker, port)
 
