@@ -1,4 +1,6 @@
 // GET HTML ELEMENTS
+const elMyGroupNumber = document.querySelector('#h2-my-group');
+const elContainerMyNumbers = document.querySelector('#my-container-numbers');
 const elContainerGroups = document.querySelector('#col-2-container-groups');
 const elMyGroupBarFiller = document.querySelector('#myGroup-bar-filler');
 const elBtnRegress = document.querySelector('#btn-regress');
@@ -17,16 +19,26 @@ const barStep = (100/numberOfTasks) + 5;
 // VARIABLES
 let myBarLength = 0;
 let groupStatus = 0; // 0 = working; 1 = need help
+let myGroupNumber = 1;
 
 // STARTUP
 r.style.setProperty('--bar-filler-width', `${myBarLength}%`);
 elBtnRegress.disabled = true;
+elMyGroupNumber.innerHTML += `${myGroupNumber}`;
 
 
 
 
 // LOAD GROUPS AND PROGRESS BARS
 function loadGroupsAndProgresses() {
+    // Load my group
+    for (let i = 0; i < numberOfTasks; i++) {
+      elContainerMyNumbers.innerHTML += `
+        <li><h4>${i+1}</h4></li>
+        `;
+    }
+
+    // Load other groups
     for (let i = 0; i < numberOfGroups; i++) {
     elContainerGroups.innerHTML += `
         <div id="group-${i}-container" class="container-groups other-group">
