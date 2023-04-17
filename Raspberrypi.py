@@ -18,10 +18,9 @@ status = 0
 
 myclient = MQTT_Client()
 myclient.start(broker, port)
+myclient.send_status(unit, group, unit_5[status])
 
 while True:
-    myclient.send_status(unit, group, unit_5[status])
-
     for event in sense.stick.get_events():
         if event.action == "pressed":
 
