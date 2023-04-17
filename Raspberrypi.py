@@ -35,5 +35,5 @@ while True:
 
             myclient.send_status(unit, group, unit_5[status])
 
-    sense.show_message(group + ":" + unit_5[status], test_colour=white)
+    sense.show_message(group + ":" + unit_5[status], text_colour=white)
     sense.clear()
