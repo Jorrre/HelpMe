@@ -1,6 +1,8 @@
 from stmpy import Machine, Driver
 import time
 
+from stm_mqtt_client import MQTTClientSTM
+
 class StudentView:
   def __init__(self, max_prorgess=5):
     self.progress = 0
@@ -122,4 +124,9 @@ student_view_machine = Machine(
 
 driver = Driver()
 driver.add_machine(student_view_machine)
+
+broker, port, topic = "mqtt20.item.ntnu.no", 1883, "g6/unit6/group6"
+client = MQTTClientSTM()
+client.start(broker, port, [topic])
+
 driver.start()
