@@ -32,6 +32,10 @@
   --heading4: normal 700 2.0rem / 2.6rem 'IBM Plex Sans', sans-serif;
   --tag: normal 700 1.4rem / 1.8rem 'IBM Plex Sans', sans-serif;
   --paragraph: normal 400 1.2rem / 1.6rem 'IBM Plex Sans', sans-serif;
+
+  /* JS VARIABLES */
+  --bar-filler-width: 0%;
+  --ping-iteration-count: 0;
 }
 
 
@@ -118,7 +122,7 @@ footer {
 
 
 
-/* TYPE AND TYPE CLASSES */
+/* CLASSES */
 .col-2 {
   width: 86.5rem;
   height: 100%;
@@ -156,6 +160,18 @@ footer {
 
 .container-group .container-group-name {
   width: 30%;
+}
+
+.container-groups {
+  width: 100%;
+
+  margin: 0 0 4rem 0;
+
+  border: 0 solid red;
+}
+
+#col-2-container-groups {
+  overflow: auto;
 }
 
 .profile-pic {
@@ -213,8 +229,8 @@ footer {
   z-index: 1;
 }
 
-.col-2 div .bar-behind .bar-filler {
-  width: 51%;
+.col-2 div .bar-behind .my-bar-filler {
+  width: var(--bar-filler-width);
   height: 100%;
 
   background: var(--color-purple);
@@ -222,6 +238,23 @@ footer {
   border-radius: 20rem;
 
   z-index: 2;
+
+  transition-timing-function: ease-in-out;
+  transition: 0.25s;
+}
+
+.col-2 div .bar-behind .bar-filler {
+  /* width: 50%; */
+  height: 100%;
+
+  background: var(--color-purple);
+
+  border-radius: 20rem;
+
+  z-index: 2;
+
+  transition-timing-function: ease-in-out;
+  transition: 0.25s;
 }
 
 .seventh-height {
@@ -319,10 +352,18 @@ button {
   color: var(--color-gray-mid);
 }
 
-.btn-help {
+.btn-help-idle {
   background: var(--color-blue);
 
   color: var(--color-white);
+}
+
+.btn-help-asking {
+  background: var(--color-white);
+
+  border: 2rem solid var(--color-blue);
+
+  color: var(--color-blue);
 }
 
 .btn-help:hover {
@@ -339,7 +380,7 @@ button {
   background: #56CF90;
 }
 
-.btn-regress:disabled {
+.btn-progress:disabled {
   background: var(--color-beige-light);
 
   color: var(--color-gray-mid);
@@ -409,7 +450,7 @@ h3 {
 
 h4 {
   font: var(--heading4);
-  text-align: center;
+  text-align: left;
   text-transform: none;
   text-decoration: none;
   letter-spacing: 0.05rem;
@@ -460,3 +501,4 @@ h5 {
   /* top | left | bottom | right */
   padding: 0 0 0 0;
 }
+ 

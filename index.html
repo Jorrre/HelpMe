@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="main.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/3ce46cd962.js" crossorigin="anonymous"></script>
-    <script src="script.js"></script>
 
     <title>HelpMe</title>
   </head>
@@ -21,6 +21,7 @@
     <main>
       <div id="col-2-container-groups" class="col-2">
         <!-- groups -->
+        <!--
         <div id="group-0-container" class="container-groups">
           <div id="group-0-container-group-name" class="container-group-name">
             <h4>Group 1</h4>
@@ -37,12 +38,12 @@
             </ul>
           </div>
 
-          <!-- bar -->
           <div class="bar-behind">
             <div id="group-0-bar-filler" class="bar-filler"></div>
           </div>
         </div>
         </div>
+      -->
       </div>
 
 
@@ -53,30 +54,32 @@
           <div class="container-profile">
             <img src="duck.svg" class="profile-pic" alt="Duck">
           </div>
-          <h2>Group 1</h2>
+          <h2 id="h2-my-group"><!-- Group 1 --></h2>
         </div>
 
         <div>
           <div class="container-numbers">
-            <ul>
+            <ul id="my-container-numbers">
+              <!--
               <li><h4>1</h4></li>
               <li><h4>2</h4></li>
               <li><h4>3</h4></li>
               <li><h4>4</h4></li>
               <li><h4>5</h4></li>
+              -->
             </ul>
           </div>
 
           <!-- bar -->
           <div class="bar-behind">
-            <div class="bar-filler"></div>
+            <div id="myGroup-bar-filler" class="my-bar-filler"></div>
           </div>
         </div>
 
         <div class="container-btns">
-          <button class="btn-regress"><i class="fa-solid fa-arrow-left" style="margin-bottom: 1rem; font-size: 3rem; color: var(--color-white);"></i>regress</button>
-          <button class="btn-help"><i class="fa-solid fa-circle-question" style="margin-bottom: 1rem; font-size: 3rem; color: var(--color-white);"></i>Ask for Help</button>
-          <button class="btn-progress"><i class="fa-solid fa-arrow-right" style="margin-bottom: 1rem; font-size: 3rem; color: var(--color-white);"></i>Progress</button>
+          <button id="btn-regress" class="btn-regress" onclick="btnRegress(event)"><i class="fa-solid fa-arrow-left" style="margin-bottom: 1rem; font-size: 3rem; color: var(--color-white);"></i>Regress</button>
+          <button id="btn-help" class="btn-help-idle" onclick="btnHelp(event)"><i id="btn-help-icon" class="fa-solid fa-circle-question" style="margin-bottom: 1rem; font-size: 3rem; color: var(--color-white);"></i>Ask for Help</button>
+          <button id="btn-progress" class="btn-progress" onclick="btnProgress(event)"><i class="fa-solid fa-arrow-right" style="margin-bottom: 1rem; font-size: 3rem; color: var(--color-white);"></i>Progress</button>
         </div>
       </div>
     </main>
@@ -86,4 +89,7 @@
     </footer>
 
   </body>
+
+  <script src="script.js"></script>
+  
 </html>
