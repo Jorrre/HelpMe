@@ -125,7 +125,7 @@ student_view_machine = Machine(
 driver = Driver()
 driver.add_machine(student_view_machine)
 
-broker, port, topic = "mqtt20.item.ntnu.no", 1883, "g6/unit6/group6"
+broker, port, topic = "mqtt20.item.ntnu.no", 1883, "g6/unit6/G6"
 client = MQTTClientSTM()
 client.start(broker, port, [topic])
 
