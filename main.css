@@ -243,6 +243,20 @@ footer {
   transition: 0.25s;
 }
 
+.col-2 div .bar-behind .bar-filler {
+  /* width: 50%; */
+  height: 100%;
+
+  background: var(--color-purple);
+
+  border-radius: 20rem;
+
+  z-index: 2;
+
+  transition-timing-function: ease-in-out;
+  transition: 0.25s;
+}
+
 .seventh-height {
   height: 60%;
 }

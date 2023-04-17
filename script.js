@@ -29,7 +29,7 @@ elBtnRegress.disabled = true;
 function loadGroupsAndProgresses() {
     for (let i = 0; i < numberOfGroups; i++) {
     elContainerGroups.innerHTML += `
-        <div id="group-${i}-container" class="container-groups">
+        <div id="group-${i}-container" class="container-groups other-group">
               <div id="group-${i}-container-group-name" class="container-group-name">
                 <h4>Group ${i+1}</h4>
               </div>
@@ -55,6 +55,33 @@ function loadGroupsAndProgresses() {
     }
 }
 
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
+}
+
+
+// LOAD RANDOM GROUP PROGRESSES
+function loadRandomProgresses() {
+  let allGroups = document.querySelectorAll('.bar-filler');
+  let allSteps = [];
+
+  // Load specific steps
+  for (let i = 0; i < numberOfTasks; i++) {
+    allSteps.push(i*barStep);
+  }
+
+  // console.log(allGroups);
+  // console.log(allSteps);
+
+  allGroups.forEach(group => {
+    let randomProgressIndex = getRandomInt(0, numberOfTasks);
+    group.style["width"] = `${allSteps[randomProgressIndex]}%`;
+    // console.log(randomProgressIndex);
+  });
+}
+
 
 
 
@@ -65,7 +92,7 @@ function btnRegress(event) {
     if (myBarLength != 0) {
         myBarLength -= barStep;
         r.style.setProperty('--bar-filler-width', `${myBarLength}%`);
-        console.log(`--bar-filler-width: ${myBarLength}%`);
+        // console.log(`--bar-filler-width: ${myBarLength}%`);
     } else {
         elBtnRegress.disabled = true;
     }
@@ -82,7 +109,7 @@ function btnProgress(event) {
         myBarLength += barStep;
         r.style.setProperty('--bar-filler-width', `${myBarLength}%`);
         elBtnRegress.disabled = false;
-        console.log(`--bar-filler-width: ${myBarLength}%`);
+        // console.log(`--bar-filler-width: ${myBarLength}%`);
     } else if (myBarLength == 100) {
         elBtnProgress.disabled = true;
     }
@@ -105,8 +132,8 @@ function btnHelp(event) {
     `;
 
     groupStatus = 1;
-    console.log("HELP ME!");
-    console.log(elBtnHelpIcon);
+    // console.log("HELP ME!");
+    // console.log(elBtnHelpIcon);
   } else {
     // elBtnHelpIcon.className = 'fa-solid fa-circle-question';
     elBtnHelp.className = 'btn-help-idle';
@@ -117,11 +144,12 @@ function btnHelp(event) {
     `;
 
     groupStatus = 0;
-    console.log("back to work");
-    console.log(elBtnHelpIcon);
+    // console.log("back to work");
+    // console.log(elBtnHelpIcon);
   }
 }
 
 
 // RUN
 loadGroupsAndProgresses();
+loadRandomProgresses();
