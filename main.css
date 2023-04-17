@@ -35,7 +35,8 @@
 
   /* JS VARIABLES */
   --bar-filler-width: 0%;
-  --ping-iteration-count: 0;
+  --switch-left-margin: 0%;
+  --switch-border-radius: 10rem 0 0 10rem;
 }
 
 
@@ -64,8 +65,10 @@ header {
   width : 100vw;
   height: auto;
 
+  margin-top: 0;
+
   /* top | left | bottom | right */
-  padding: 2rem 4rem 2rem 4rem;
+  padding: 0rem 4rem 0rem 4rem;
 
   display: flex;
   flex-flow: row;
@@ -122,7 +125,7 @@ footer {
 
 
 
-/* CLASSES */
+/* CLASSES & IDS */
 .col-2 {
   width: 86.5rem;
   height: 100%;
@@ -261,6 +264,118 @@ footer {
   height: 60%;
 }
 
+.container-toggle-views {
+  margin-top: 5rem;
+
+  cursor: pointer;
+
+  transition-timing-function: ease-in-out;
+  transition: 0.25s;
+
+  z-index: 2;
+}
+
+.container-toggle-views-options {
+  width: auto;
+  height: auto;
+
+  border: 0 solid red;
+
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  align-content: space-between;
+  justify-content: space-between;
+
+  z-index: 2;
+}
+
+.view {
+  width: 25rem;
+
+  padding: 1rem 2rem;
+
+  border: 0 solid cyan;
+
+  transition-timing-function: ease-in-out;
+  transition: 0.25s;
+}
+
+.view h4 {
+  text-align: center;
+}
+
+.active {
+  border: none;
+
+  color: var(--color-white);
+
+  transition-timing-function: ease-in-out;
+  transition: 0.25s;
+}
+
+.inactive {
+  border: 0.2rem solid var(--color-gray-mid);
+
+  color: var(--color-gray-dark);
+
+  transition-timing-function: ease-in-out;
+  transition: 0.25s;
+}
+
+.active h4 {
+  color: var(--color-white);
+}
+
+.inactive h4 {
+  color: var(--color-gray-mid);
+}
+
+#view-student {
+  border-radius: 2rem 0 0 2rem;
+  z-index: 10;
+
+  transition-timing-function: ease-in-out;
+  transition: 0.25s;
+}
+
+#view-student h4 {
+  margin-top: 0rem;
+  /* color: var(--color-white); */
+}
+
+#view-ta {
+  border-radius: 0 2rem 2rem 0;
+  z-index: 10;
+
+  transition-timing-function: ease-in-out;
+  transition: 0.25s;
+}
+
+#view-ta h4 {
+  margin-top: orem;
+  /* color: var(--color-gray-dark); */
+}
+
+#view-switch {
+  width: 50%;
+  height: 5rem;
+
+  position: relative;
+  top: -5rem;
+  left: var(--switch-left-margin);
+
+  border: none;
+  border-radius: var(--switch-border-radius);
+
+  background: var(--color-gray-dark);
+
+  z-index: 1;
+
+  transition-timing-function: ease-in-out;
+  transition: 0.25s;
+}
+
 
 
 
@@ -385,7 +500,6 @@ button {
 
   color: var(--color-gray-mid);
 }
-
 
 
 

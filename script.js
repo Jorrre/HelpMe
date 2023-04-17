@@ -1,4 +1,7 @@
 // GET HTML ELEMENTS
+const elSwitchView = document.querySelector('#container-toggle-views');
+const elViewStudent = document.querySelector('#view-student');
+const elViewTa = document.querySelector('#view-ta');
 const elMyGroupNumber = document.querySelector('#h2-my-group');
 const elContainerMyNumbers = document.querySelector('#my-container-numbers');
 const elContainerGroups = document.querySelector('#col-2-container-groups');
@@ -20,11 +23,16 @@ const barStep = (100/numberOfTasks) + 5;
 let myBarLength = 0;
 let groupStatus = 0; // 0 = working; 1 = need help
 let myGroupNumber = 1;
+let currentView = 0; // 0 = student; 1 = ta/teacher
+let switchViewLeftMargin = 0; // start in student view
+let switchViewBorderRadius = '10rem 0 0 10rem'; // start in student view
 
 // STARTUP
 r.style.setProperty('--bar-filler-width', `${myBarLength}%`);
+r.style.setProperty('--switch-left-margin', `${switchViewLeftMargin}%`);
+r.style.setProperty('--switch-border-radius', `${switchViewBorderRadius}`);
 elBtnRegress.disabled = true;
-elMyGroupNumber.innerHTML += `${myGroupNumber}`;
+elMyGroupNumber.innerHTML += `Group ${myGroupNumber}`;
 
 
 
@@ -167,6 +175,44 @@ function btnHelp(event) {
 }
 
 
+
+
+// TOGGLE VIEW
+function toggleView(event) {
+  event.preventDefault();
+
+  if (!currentView) {
+    switchViewLeftMargin = 0;
+    switchViewBorderRadius = '10rem 0 0 10rem';
+
+    r.style.setProperty('--switch-left-margin', `${switchViewLeftMargin}%`);
+    r.style.setProperty('--switch-border-radius', `${switchViewBorderRadius}`);
+
+    elViewStudent.className = 'view active';
+    elViewTa.className = 'view inactive';
+
+    currentView = 1;
+    console.log('switched to student view')
+  } else {
+    switchViewLeftMargin = 50;
+    switchViewBorderRadius = '0 10rem 10rem 0';
+    
+    r.style.setProperty('--switch-left-margin', `${switchViewLeftMargin}%`);
+    r.style.setProperty('--switch-border-radius', `${switchViewBorderRadius}`);
+
+    elViewStudent.className = 'view inactive';
+    elViewTa.className = 'view active';
+
+    currentView = 0;
+    console.log('switched to ta/teacher view')
+  }
+
+  // console.log(getComputedStyle(elViewStudent));
+  // console.log(getComputedStyle(elViewTa));
+}
+
+
 // RUN
 loadGroupsAndProgresses();
 loadRandomProgresses();
+elSwitchView.onclick = toggleView;
