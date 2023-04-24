@@ -1,6 +1,7 @@
 import paho.mqtt.client as mqtt
 from time import sleep
 from threading import Thread
+import json
 
 class MQTT_Client:
     def __init__(self, handleMessage):
@@ -28,7 +29,7 @@ class MQTT_Client:
     def on_message(self, client, userdata, msg):
         try:
             print(f"Received `{msg.payload}` from `{msg.topic}` topic")
-            self.handleMessage(msg.payload.decode())
+            self.handleMessage(json.loads(msg.payload))
         except e:
             print(e)
 
