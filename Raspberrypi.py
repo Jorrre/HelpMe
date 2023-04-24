@@ -25,7 +25,7 @@ def handleMessage(msg):
     print(msg)
 
     if msg[0] == "update_progress":
-        status = int(msg[1])
+        status = msg[1]
     if msg[0] == "help_off":
         helpFlag = False
     if msg[0] == "help_on":

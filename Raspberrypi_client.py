@@ -36,6 +36,8 @@ class MQTT_Client:
     def send_status(self, unit, group, status):
         try:
             self.client.publish("g6/" + unit + "/" + group, status)
+            print(f"Sent a message")
+
         except Exception as e:
             print(e)
 
