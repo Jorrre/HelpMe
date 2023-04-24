@@ -16,10 +16,14 @@ unit_5 = ["Q1", "Q2", "Q3", "Q4"]
 unit = "unit6"
 group = "G6"
 status = 0
+helpFlag = False
 
 myclient = MQTT_Client()
 myclient.start(broker, port)
 myclient.send_status(unit, group, unit_5[status])
+
+def handleMessage(msg):
+    print(msg)
 
 while True:
     for event in sense.stick.get_events():
@@ -32,7 +36,12 @@ while True:
                 status = status + 1
                 myclient.send_status(unit, group, unit_5[status])
             elif event.direction == "middle":
-                myclient.send_status(unit, group, "Help")
+                helpFlag = not helpFlag
 
-    sense.show_message(group + ":" + unit_5[status], text_colour=white)
+            if helpFlag:
+                myclient.send_status(unit, group, "Help")
+                sense.show_message(group + ":" + unit_5[status], text_colour=red)
+            else:
+                myclient.send_status(unit, group, "no help")
+                sense.show_message(group + ":" + unit_5[status], text_colour=white)
     sense.clear()

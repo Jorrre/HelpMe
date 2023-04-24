@@ -1,6 +1,7 @@
 import paho.mqtt.client as mqtt
 from time import sleep
 from threading import Thread
+from Raspberrypi import handleMessage
 
 class MQTT_Client:
     def on_connect(self, client, userdata, flags, rc):
@@ -24,7 +25,8 @@ class MQTT_Client:
 
     def on_message(self, client, userdata, msg):
         try:
-            print(f"Received `{msg.payload.decode()}` from `{msg.topic}` topic")
+            print(f"Received `{msg.payload}` from `{msg.topic}` topic")
+            handleMessage(msg.payload)
         except e:
             print(e)
 
