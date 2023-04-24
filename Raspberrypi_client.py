@@ -30,12 +30,12 @@ class MQTT_Client:
         try:
             print(f"Received `{msg.payload}` from `{msg.topic}` topic")
             self.handleMessage(json.loads(msg.payload))
-        except e:
+        except Exception as e:
             print(e)
 
     def send_status(self, unit, group, status):
         try:
             self.client.publish("g6/" + unit + "/" + group, status)
-        except e:
-            print("error")
+        except Exception as e:
+            print(e)
 
