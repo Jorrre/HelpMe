@@ -33,10 +33,8 @@ def handleMessage(msg):
 
 def displayMessage():
     if helpFlag:
-        myclient.send_status(unit, group, "Help")
         sense.show_message(group + ":" + unit_5[status], text_colour=red)
     else:
-        myclient.send_status(unit, group, "no help")
         sense.show_message(group + ":" + unit_5[status], text_colour=white)
     sense.clear()
 
@@ -46,7 +44,7 @@ myclient.start(broker, port)
 while True:
     for event in sense.stick.get_events():
         if event.action == "pressed":
-
+            print("test")
             if event.direction == "left" and status > 1:
                 status = status - 1
                 myclient.send_status(unit, group, unit_5[status])
