@@ -211,6 +211,12 @@ function toggleView(event) {
 }
 
 
+
+// MQTT
+
+
+
+
 // RUN
 loadGroupsAndProgresses();
 loadRandomProgresses();
