@@ -184,7 +184,6 @@ function toggleView(event) {
   if (!currentView) {
     switchViewLeftMargin = 0;
     switchViewBorderRadius = '10rem 0 0 10rem';
-
     r.style.setProperty('--switch-left-margin', `${switchViewLeftMargin}%`);
     r.style.setProperty('--switch-border-radius', `${switchViewBorderRadius}`);
 
