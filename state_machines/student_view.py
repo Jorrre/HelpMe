@@ -1,10 +1,16 @@
 from stmpy import Machine, Driver
 import time
-
 from stm_mqtt_client import MQTTClientSTM
 
+topic_prefix = "g6/"
+
+group_num = 6
+unit_num = 6
 class StudentView:
-  def __init__(self, max_prorgess=5):
+  def __init__(self, mqtt_client, group_num, unit_num, max_prorgess=5):
+    self.mqtt_client = mqtt_client
+    self.topic = topic_prefix + f"unit{unit_num}/G{group_num}"
+    self.mqtt_client.subscribe(self.topic)
     self.progress = 0
     self.max_prorgess = max_prorgess
     self.wait_for_help_stopwatch_start_time = 0
@@ -12,24 +18,27 @@ class StudentView:
 
   def display_group_number(self):
     print("Displaying group number")
+    self.mqtt_client.publish(self.topic, "display_group_num")
   
   def light_on(self):
     print("Turning the light on")
+    self.mqtt_client.publish(self.topic, "light_on")
 
   def light_off(self):
     print("Turning the light off")
+    self.mqtt_client.publish(self.topic, "light_off")
 
   def increase_progress(self):
     print("Increasing progress")
     if (self.progress < self.max_prorgess):
       self.progress += 1
-      print("Current progress: " + self.progress)
-
+    _display_progress()
+      
   def decrease_progress(self):
     print("Decreasing progress")
     if (self.progress > 0):
       self.progress -= 1
-      print("Current progress: " + self.progress)
+    _display_progress()
 
   def start_wait_for_help_stopwatch(self):
     print("Starting wait for help stopwatch")
@@ -57,7 +66,10 @@ class StudentView:
     print(f"Help stopwatch used {elapsed_time} seconds")
     self.help_stopwatch_start_time = 0 # restart stopwatch
 
-student_view = StudentView()
+  def _display_progress(self):
+    print("Current progress: " + self.progress)
+    self.mqtt_client.publish(self.topic, ["display_progress", progress])
+
 
 t_init = {
   "source": "initial",
@@ -115,6 +127,8 @@ s_receiving_help = {
   "press_backwards": "decrease_progress()"
 }
 
+client = MQTTClientSTM()
+student_view = StudentView(client, group_num, unit_num)
 student_view_machine = Machine(
   name="student_view",
   obj=student_view,
@@ -125,8 +139,5 @@ student_view_machine = Machine(
 driver = Driver()
 driver.add_machine(student_view_machine)
 
-broker, port, topic = "mqtt20.item.ntnu.no", 1883, "g6/unit6/G6"
-client = MQTTClientSTM()
-client.start(broker, port, [topic])
-
+client.start()
 driver.start()
