@@ -17,7 +17,7 @@ class MQTT_Client:
         print("Connecting to {}:{}".format(broker, port))
         self.client.connect(broker, port)
 
-        self.client.subscribe("g6/unit6/G6")
+        self.client.subscribe("g6/unit6/G6/update")
 
         try:
             thread = Thread(target=self.client.loop_forever)
