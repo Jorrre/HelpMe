@@ -44,10 +44,10 @@ myclient.start(broker, port)
 while True:
     for event in sense.stick.get_events():
         if event.action == "pressed":
-            if event.direction == "left" and status > 1:
+            if event.direction == "left" and status > 0:
                 status = status - 1
                 myclient.send_status(unit, group, str(status))
-            elif event.direction == "right" and status < len(unit_5) - 2:
+            elif event.direction == "right" and status < len(unit_5) - 1:
                 status = status + 1
                 myclient.send_status(unit, group, str(status))
             elif event.direction == "middle":
