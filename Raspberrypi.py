@@ -42,7 +42,6 @@ def displayMessage():
 
 myclient = MQTT_Client(handleMessage)
 myclient.start(broker, port)
-myclient.send_status(unit, group, unit_5[status])
 
 while True:
     for event in sense.stick.get_events():
