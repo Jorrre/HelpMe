@@ -27,7 +27,8 @@ function loadGroupsAndProgresses() {
     elContainerGroups.innerHTML += `
         <div id="group-${i}-container" class="container-groups-grid other-group grid-group" data-group-number="${i+1}">
               <div id="group-${i}-container-group-name" class="container-group-name">
-                <h4>Group ${i+1}</h4>
+                <h4 style="display:inline-block;">Group ${i+1}</h4>
+                <h4 style="display:none; color:var(--color-purple);margin-left:2rem;">Help me!</h4>
               </div>
 
               <div>
@@ -79,7 +80,9 @@ function loadRandomProgresses() {
 }
 
 // SORT GROUPS
-function sortGroups() {
+function sortGroups(event) {
+  event.preventDefault();
+  
   // console.log("new sort");
   let allGroupsCurrentSort = document.querySelectorAll('.grid-group');
   let allGroupDetails = [];

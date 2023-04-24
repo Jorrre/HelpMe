@@ -15,6 +15,7 @@
   --color-yellow: #FFD639;
   --color-pink: #FFA3AF;
   --color-blue: #007CBE;
+  --color-purple-light: #e6d6fe;
   --color-green: #00AF54;
   --color-purple: #9B51E0;
 
@@ -415,6 +416,7 @@ footer {
   transition: 0.25s;
 }
 */
+
 .container-filter-sort {
   transition-timing-function: ease-in-out;
   transition: 0.25s;
@@ -436,6 +438,11 @@ select {
   text-decoration: none;
   letter-spacing: auto;
   color: var(--color-gray-dark);
+}
+
+.group-needs-help {
+  background: var(--color-purple-light);
+  border: 0.2rem solid var(--color-purple);
 }
 
 
