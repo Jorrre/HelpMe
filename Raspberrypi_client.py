@@ -28,7 +28,7 @@ class MQTT_Client:
     def on_message(self, client, userdata, msg):
         try:
             print(f"Received `{msg.payload}` from `{msg.topic}` topic")
-            self.handleMessage(msg.payload)
+            self.handleMessage(msg.payload.decode())
         except e:
             print(e)
 
