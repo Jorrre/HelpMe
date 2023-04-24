@@ -18,12 +18,12 @@ group = "G6"
 status = 0
 helpFlag = False
 
-myclient = MQTT_Client()
-myclient.start(broker, port)
-myclient.send_status(unit, group, unit_5[status])
-
 def handleMessage(msg):
     print(msg)
+
+myclient = MQTT_Client(handleMessage)
+myclient.start(broker, port)
+myclient.send_status(unit, group, unit_5[status])
 
 while True:
     for event in sense.stick.get_events():
