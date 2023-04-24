@@ -31,12 +31,14 @@ def handleMessage(msg):
     if msg[0] == "help_on":
         helpFlag = True
 
+def displayMessage():
     if helpFlag:
         myclient.send_status(unit, group, "Help")
         sense.show_message(group + ":" + unit_5[status], text_colour=red)
     else:
         myclient.send_status(unit, group, "no help")
         sense.show_message(group + ":" + unit_5[status], text_colour=white)
+    sense.clear()
 
 myclient = MQTT_Client(handleMessage)
 myclient.start(broker, port)
@@ -55,10 +57,4 @@ while True:
             elif event.direction == "middle":
                 helpFlag = not helpFlag
 
-            if helpFlag:
-                myclient.send_status(unit, group, "Help")
-                sense.show_message(group + ":" + unit_5[status], text_colour=red)
-            else:
-                myclient.send_status(unit, group, "no help")
-                sense.show_message(group + ":" + unit_5[status], text_colour=white)
-    sense.clear()
+    displayMessage()
