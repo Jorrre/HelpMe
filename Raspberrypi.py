@@ -46,10 +46,10 @@ while True:
         if event.action == "pressed":
             if event.direction == "left" and status > 1:
                 status = status - 1
-                myclient.send_status(unit, group, status)
+                myclient.send_status(unit, group, str(status))
             elif event.direction == "right" and status < len(unit_5) - 2:
                 status = status + 1
-                myclient.send_status(unit, group, status)
+                myclient.send_status(unit, group, str(status))
             elif event.direction == "middle":
                 helpFlag = not helpFlag
 
