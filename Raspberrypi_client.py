@@ -1,8 +1,12 @@
 import paho.mqtt.client as mqtt
 from time import sleep
 from threading import Thread
+import json
 
 class MQTT_Client:
+    def __init__(self, handleMessage):
+        self.handleMessage = handleMessage
+
     def on_connect(self, client, userdata, flags, rc):
         print("on_connect(): {}".format(mqtt.connack_string(rc)))
 
@@ -13,7 +17,7 @@ class MQTT_Client:
         print("Connecting to {}:{}".format(broker, port))
         self.client.connect(broker, port)
 
-        self.client.subscribe("g6/unit6/G6")
+        self.client.subscribe("g6/unit6/G6/update")
 
         try:
             thread = Thread(target=self.client.loop_forever)
@@ -24,13 +28,16 @@ class MQTT_Client:
 
     def on_message(self, client, userdata, msg):
         try:
-            print(f"Received `{msg.payload.decode()}` from `{msg.topic}` topic")
-        except e:
+            print(f"Received `{msg.payload}` from `{msg.topic}` topic")
+            self.handleMessage(json.loads(msg.payload))
+        except Exception as e:
             print(e)
 
     def send_status(self, unit, group, status):
         try:
             self.client.publish("g6/" + unit + "/" + group, status)
-        except e:
-            print("error")
+            print(f"Sent a message")
+
+        except Exception as e:
+            print(e)
 

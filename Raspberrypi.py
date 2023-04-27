@@ -11,28 +11,51 @@ orange = (255, 165, 0)
 red = (255, 0, 0)
 difficulty = [green, orange, red]
 
-unit_5 = ["Q1", "Q2", "Q3", "Q4"]
+unit_5 = ["Q1", "Q2", "Q3", "Q4", "Q5"]
 
 unit = "unit6"
 group = "G6"
-status = 0
 
-myclient = MQTT_Client()
+status = 0
+helpFlag = False
+
+def handleMessage(msg):
+    global helpFlag
+    global status
+    print(msg)
+
+    if msg[0] == "update_progress":
+        status = msg[1]
+    if msg[0] == "help_off":
+        helpFlag = False
+    if msg[0] == "help_on":
+        helpFlag = True
+
+def displayMessage():
+    if helpFlag:
+        sense.show_message(group + ":" + unit_5[status], text_colour=red)
+    else:
+        sense.show_message(group + ":" + unit_5[status], text_colour=white)
+    sense.clear()
+
+myclient = MQTT_Client(handleMessage)
 myclient.start(broker, port)
-myclient.send_status(unit, group, unit_5[status])
 
 while True:
     for event in sense.stick.get_events():
         if event.action == "pressed":
-
-            if event.direction == "left" and status > 1:
+            if event.direction == "left" and status > 0:
                 status = status - 1
-                myclient.send_status(unit, group, unit_5[status])
-            elif event.direction == "right" and status < len(unit_5) - 2:
+                myclient.send_status(unit, group, str(status))
+            elif event.direction == "right" and status < len(unit_5) - 1:
                 status = status + 1
-                myclient.send_status(unit, group, unit_5[status])
+                myclient.send_status(unit, group, str(status))
             elif event.direction == "middle":
-                myclient.send_status(unit, group, "Help")
+                helpFlag = not helpFlag
 
-    sense.show_message(group + ":" + unit_5[status], text_colour=white)
-    sense.clear()
+                if helpFlag:
+                    myclient.send_status(unit, group, "help")
+                else:
+                    myclient.send_status(unit, group, "no help")
+
+    displayMessage()
