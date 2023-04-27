@@ -38,7 +38,7 @@ def displayMessage():
         sense.show_message(group + ":" + unit_5[status], text_colour=white)
     sense.clear()
 
-myclient = MQTT_Client(handleMessage)
+myclient = RPIMQTTClient(handleMessage)
 myclient.start(broker, port)
 
 while True:
