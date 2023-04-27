@@ -53,4 +53,9 @@ while True:
             elif event.direction == "middle":
                 helpFlag = not helpFlag
 
+                if helpFlag:
+                    myclient.send_status(unit, group, "help")
+                else:
+                    myclient.send_status(unit, group, "no help")
+
     displayMessage()
