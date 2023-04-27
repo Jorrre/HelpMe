@@ -3,7 +3,7 @@ from time import sleep
 from threading import Thread
 import json
 
-class MQTT_Client:
+class RPIMQTTClient:
     def __init__(self, handleMessage):
         self.handleMessage = handleMessage
 

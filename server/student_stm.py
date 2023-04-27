@@ -7,7 +7,7 @@ topic_prefix = "g6/"
 group_num = 6
 unit_num = 6
 
-class StudentView:
+class StudentHandler:
   def __init__(self, mqtt_client, group_num, unit_num, max_prorgess=5):
     self.mqtt_client = mqtt_client
     self.topic = topic_prefix + f"unit{unit_num}/G{group_num}/update"
@@ -124,16 +124,16 @@ s_receiving_help = {
 }
 
 client = MQTTClientSTM()
-student_view = StudentView(client, group_num, unit_num)
-student_view_machine = Machine(
+student_handler = StudentHandler(client, group_num, unit_num)
+student_machine = Machine(
   name="student_view",
-  obj=student_view,
+  obj=student_handler,
   transitions=[t_init, t_press_help, t_cancel_help, t_TA_accepts_to_help, t_TA_finished_help], 
   states=[s_no_help, s_need_help, s_receiving_help]  
 )
 
 driver = Driver()
-driver.add_machine(student_view_machine)
+driver.add_machine(student_machine)
 
 client.start()
 driver.start()
