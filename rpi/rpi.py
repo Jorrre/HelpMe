@@ -1,6 +1,6 @@
 from sense_hat import SenseHat
 from time import sleep
-from Raspberrypi_client import MQTT_Client
+from rpi_mqtt_client import RPIMQTTClient
 
 broker, port = "mqtt20.item.ntnu.no", 1883
 
