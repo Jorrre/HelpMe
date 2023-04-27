@@ -212,12 +212,76 @@ function toggleView(event) {
 
 
 
-// MQTT
-
-
-
 
 // RUN
 loadGroupsAndProgresses();
 loadRandomProgresses();
-elSwitchView.onclick = toggleView;
+
+
+
+
+// // MQTT
+// import { connect } from "mqtt";
+// 
+// /***
+//  * Browser
+//  * Using MQTT over WebSocket with ws and wss protocols
+//  * EMQX's ws connection default port is 8083, wss is 8084
+//  * Note that you need to add a path after the connection address, such as /mqtt
+//  */
+// const url = 'mqtt20.item.ntnu.no:1883';
+// /***
+//  * Node.js
+//  * Using MQTT over TCP with mqtt and mqtts protocols
+//  * EMQX's mqtt connection default port is 1883, mqtts is 8883
+//  */
+// // const url = 'mqtt://broker.emqx.io:1883'
+// 
+// // Create an MQTT client instance
+// const options = {
+//   // Clean session
+//   clean: true,
+//   connectTimeout: 4000,
+//   // Authentication
+//   // clientId: 'emqx_test',
+//   // username: 'emqx_test',
+//   // password: 'emqx_test',
+// }
+// const client  = connect(url, options)
+// client.on('connect', function () {
+//   console.log('Connected')
+//   // Subscribe to a topic
+//   client.subscribe('g6/unit6/G6', function (err) {
+//     if (!err) {
+//       // Publish a message to a topic
+//       // client.publish('g6/unit6/G6', 'Hello mqtt')
+//       console.log("Hello MQTT");
+//     }
+//   })
+// })
+// 
+// // Receive messages
+// /*
+// client.on('message', function (topic, message) {
+//   // message is Buffer
+//   console.log(message.toString())
+//   client.end()
+// })
+// */
+// 
+// client.on('message', function (topic, payload, packet) {
+//   // Payload is Buffer
+//   console.log(`Topic: ${topic}, Message: ${payload.toString()}, QoS: ${packet.qos}`);
+//   client.end();
+// });
+// 
+// // Subscribe to a topic named g6/unit6/G6 with QoS 0
+// client.subscribe('g6/unit6/G6', { qos: 0 }, function (error, granted) {
+//   if (error) {
+//     console.log(error)
+//   } else {
+//     console.log(`${granted[0].topic} was subscribed`)
+//   }
+// });
+// 
+// 
